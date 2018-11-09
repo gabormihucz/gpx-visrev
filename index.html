@@ -9,30 +9,32 @@
     <meta name="author" content="">
 
     <title>GPX VisRev</title>
-
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
 
   </head>
 
   <body>
 
 	<div class="container-fluid">
-	
+
 		<div class="row align-items-center">
-		
+
 			<div class="offset-sm-1 col-sm-7">
 				<canvas id="canvas"></canvas>
 			</div>
-			
+
 			<div class="col-sm-1">
 			</div>
-			
+
 			<div class="file btn-lg btn-primary btn btn-outline-secondary col-sm-2  ">
 							Upload
 				<input type="file" name="file"/>
@@ -40,74 +42,30 @@
 
 		</div>
 	</div>
-	
+
 	<div class="container-fluid">
 		<div class="row" >
 			<div class="col-sm-8" style="background-color: red"></div>
-			
+
 			<div class="col-sm-4 row center-text">
 				<div class="col-sm-12">
 					15km/h
 				</div>
-			
+
 				<div class="col-sm-12">
 					12km
 				</div>
 			</div>
 		</div>
-	
+
 	</div>
-	
-	
-	
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="js/chart.js"></script>
 
 
-    <div id='map' style='width: 1300px; height: 750px;'></div>
-      <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoicG9sYXJodW4iLCJhIjoiY2pvYTZhZWJ5MGIwZjNrbXBiNTd3amJnOSJ9.xIn7UgAKh1kF2zTRc6xnxA';
-          var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v10',
-          center: [8.9511, 46.0037],
-          zoom: 16
-        });
+  <script src="js/chart.js"></script>
 
-        var coord = [
-            [8.95168307237327098846435546875, 46.003257147967815399169921875],
-            [8.95168055780231952667236328125, 46.00324717350304126739501953125],
-            [8.95173990167677402496337890625, 46.0030994005501270294189453125],
-            [8.95151794888079166412353515625, 46.0030053555965423583984375],
-            [8.95139238797128200531005859375, 46.002952717244625091552734375]
-        ];
-        map.on('load', function () {
-        map.addLayer({
-            "id": "route",
-            "type": "line",
-            "source": {
-                "type": "geojson",
-                "data": {
-                    "type": "Feature",
-                    "properties": {},
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": coord
-                    }
-                }
-            },
-            "layout": {
-                "line-join": "round",
-                "line-cap": "round"
-            },
-            "paint": {
-                "line-color": "#ff69b4",
-                "line-width": 8
-            }
-        });
-    });
 
-      </script>
+  <div id='map' style='width: 1000px; height: 500px;'></div>
+  <script src="js/map.js"></script>
 
   </body>
 
