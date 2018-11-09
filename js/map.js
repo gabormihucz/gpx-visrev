@@ -8,6 +8,9 @@
   });
 
   function populateMap(data){
+    // data is the GeoJSON file, extracted is the first data point of longitude, latitude, elevation
+    // data.features[0].geometry.coordinates is the set of all long-lat-ele data points from the GPX
+    // For time and heartbeat and other data, more digging is needed in the GeoJSON
     var extracted = (data.features[0].geometry.coordinates[0]);
     console.log(extracted);
     map.flyTo({
