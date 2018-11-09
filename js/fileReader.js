@@ -10,7 +10,8 @@ window.onload = function() {
 
         reader.onload = function(e) {
           var dom = (new DOMParser()).parseFromString(reader.result, 'text/xml');
-          console.log(JSON.stringify(toGeoJSON.gpx(dom)));
+          var json = toGeoJSON.gpx(dom);
+          populateMap(json);
         }
 
         reader.readAsBinaryString(file);

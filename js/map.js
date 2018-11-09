@@ -7,30 +7,33 @@
     zoom: 16
   });
 
-  var coord = [[0,0]];
-
-  map.on('load', function () {
-  map.addLayer({
-      "id": "route",
-      "type": "line",
-      "source": {
-          "type": "geojson",
-          "data": {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                  "type": "LineString",
-                  "coordinates": coord
-              }
-          }
-      },
-      "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-      },
-      "paint": {
-          "line-color": "#ff69b4",
-          "line-width": 8
-      }
-  });
-});
+  function populateMap(data){
+    var extracted = (data.features[0].geometry.coordinates[0]);
+    console.log(extracted);
+    map.flyTo({
+          center: [extracted[0], extracted[1]]
+      });
+    // map.addLayer({
+    //     "id": "route",
+    //     "type": "line",
+    //     "source": {
+    //         "type": "geojson",
+    //         "data": {
+    //             "type": "Feature",
+    //             "properties": {},
+    //             "geometry": {
+    //                 "type": "LineString",
+    //                 "coordinates": coord
+    //             }
+    //         }
+    //     },
+    //     "layout": {
+    //         "line-join": "round",
+    //         "line-cap": "round"
+    //     },
+    //     "paint": {
+    //         "line-color": "#ff69b4",
+    //         "line-width": 8
+    //     }
+    // });
+  }
