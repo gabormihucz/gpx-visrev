@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
 
     <meta charset="utf-8">
@@ -23,6 +22,8 @@
   </head>
 
   <body>
+  	var gpx = new gpxParser(); //Create gpxParser Object
+	gpx.parse("<xml><gpx></gpx></xml>"); //parse gpx file from string data
 
 	<div class="container-fluid">
 
@@ -42,6 +43,7 @@
 
 		</div>
 	</div>
+
 
 	<div class="container-fluid">
 		<div class="row" >
@@ -64,8 +66,18 @@
   <script src="js/chart.js"></script>
 
 
+<!-- print JSON of parsed gpx to the console -->
+
   <div id='map' style='width: 1000px; height: 500px;'></div>
   <script src="js/map.js"></script>
+	<script src='js/togeojson.js'></script>
+	<script>
+	$.ajax('resources/data/cycling.gpx').done(function(xml) {
+	    console.log(JSON.stringify(toGeoJSON.gpx(xml)));
+	});
+	</script>
+
+
 
   </body>
 
