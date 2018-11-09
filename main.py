@@ -1,4 +1,6 @@
 import gpxpy.gpx
+import json
+
 from datetime import datetime
 
 
@@ -30,17 +32,17 @@ def time_difference(location_list):
 
 def get_data(file_name):
     points = {}
-    with open(file_name, "r") as gpx_file:
+    with open("./resources/data/" + file_name, "r") as gpx_file:
         gpx = gpxpy.parse(gpx_file)
 
     for track in gpx.tracks:
         points[track.name] = []
         for seg in track.segments:
             for point in seg.points:
-                points[track.name].append((point.latitude, point.longitude, point.elevation, point.speed, point.time))
+                points[track.name].append((point.latitude, point.longitude, point.elevation, point.speed, point.time.strftime("%Y-%m-%d %H:%M:%S")))
 
-    return points
+    with open("./resources/data/data_processed.json", "w") as file_path:
+        json.dump(points, file_path)
 
 
-# import pprint
-# pprint.pprint(get_data("resources/data/cycling.gpx"))
+get_data("cycling.gpx")
