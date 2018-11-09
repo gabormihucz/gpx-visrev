@@ -13,10 +13,7 @@ canvas {
 	color: #fff;
 	background-color: #191B36;
 }
-div {
-  position: relative;
-  overflow: hidden;
-}
+
 input {
   position: absolute;
   font-size: 50px;
