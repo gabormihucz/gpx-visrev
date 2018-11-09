@@ -1,6 +1,31 @@
 body {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  margin: 0;
+}
+
+canvas {
+  margin: 30px auto;
+  display: block;
+  background-color: #fff;
+  height: 150px;
+  width: 100%;
+}
+.top-navbar{
+	color: #fff;
+	background-color: #191B36;
+}
+div {
+  position: relative;
+  overflow: hidden;
+}
+input {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+.center-text{
+	justify-content: center;
+	text-align: center;
+	align-content: center;
 }
