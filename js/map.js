@@ -18,7 +18,7 @@ function populateMap(data) {
   // data.features[0].geometry.coordinates is the set of all long-lat-ele data points from the GPX
   // For time and heartbeat and other data, more digging is needed in the GeoJSON
   const extracted = data.features[0].geometry.coordinates;
-  const pDensity = 20;
+  const pDensity = 30;
   var coord = [];
   var points = [];
   var index = 0;
@@ -28,6 +28,7 @@ function populateMap(data) {
     if (index % pDensity === 0) {
       points.push({
         type: "Feature",
+        properties: {},
         geometry: {
           type: "Point",
           coordinates: [element[0], element[1]]
@@ -85,5 +86,17 @@ function populateMap(data) {
     paint: {
       "circle-color": "#32cd32"
     }
+  });
+
+  map.on("click", "points", function(e) {
+    map.flyTo({ center: e.features[0].geometry.coordinates });
+  });
+
+  map.on("mouseenter", "points", function() {
+    map.getCanvas().style.cursor = "pointer";
+  });
+
+  map.on("mouseleave", "points", function() {
+    map.getCanvas().style.cursor = "";
   });
 }
