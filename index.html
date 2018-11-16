@@ -47,9 +47,19 @@
 				<canvas id="line-chart"></canvas> 
 			</div>
 			
-			<div class="col-md-4 col-sm-12">
-				<button type="button" class="btn btn-secondary btn-lg btn-block">Upload</button>
+			<div class="file btn-lg btn-primary btn btn-outline-secondary col-sm-2  ">
+							Upload
+				<input type="file" name="file" id="fileInput"/>
 			</div>
+			<!-- code
+			
+			<div class="col-md-4 col-sm-12 file">
+			
+			<input type="file" name="file" id="fileInput">
+				<button type="button" class="btn btn-secondary btn-lg btn-block">Upload</button>
+				</input>
+			</div>
+			-->
 		</div>
 <!-- Map + side bar info -->
 		<div class="row align-items-center">
@@ -98,10 +108,10 @@
 				-->
 
 <!-- END -->
-
-
+  <script src="js/chart.js"></script>
+  <script src='js/togeojson.js'></script>
+  <script src='js/fileReader.js'></script>
   <script src="js/map.js"></script>
-    <script src="js/chart.js"></script>
 
   </body>
 
