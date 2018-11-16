@@ -3,9 +3,9 @@ new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
 	 
-    labels: [1,2,3,4,5,6],
+    labels: [0,0,0,0,0,0],
     datasets: [{ 
-        data: [281.600006103515625,281.600006103515625,280.20001220703125,280.20001220703125,280.20001220703125,280.20001220703125],
+        data: [0,0,0,0,0,0],
         label: "Track1",
         borderColor: "#3e95cd",
         fill: false
