@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
 
     <meta charset="utf-8">
@@ -11,61 +12,96 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+
 
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- chart js-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
 
 
   </head>
 
   <body>
-
+<!-- Top bar name -->
+	<nav class="navbar navbar-dark bg-info" style="height:15%">
+		<p class="navbar-brand mx-auto">GPX VisRev</p>
+	</nav>
+<!-- Top level - graph and upload -->
 	<div class="container-fluid">
-
+		<div class="row align-items-center" style="height: 25%; margin-bottom: 1%;">
+			<div class="col-md-8 h-100">
+				<canvas id="line-chart"></canvas> 
+			</div>
+			
+			<div class="col-md-4 col-sm-12">
+				<button type="button" class="btn btn-secondary btn-lg btn-block">Upload</button>
+			</div>
+		</div>
+<!-- Map + side bar info -->
 		<div class="row align-items-center">
+			<div class="col-md-8 h-100">
+				<div id='map' class="h-100">
+				</div>
+			</div>	
+			
+			<div class="container-fluid col-md-4 h-100">
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
 
-			<div class="offset-sm-1 col-sm-7">
-				<canvas id="canvas"></canvas>
+						<div class="dropdown w-100">
+						  <button class="dropbtn btn btn-secondary btn-lg btn-block">Track 1</button>
+						  <div class="dropdown-content w-100">
+							<a href="#">track 2</a>
+							<a href="#">track 3</a>
+							<a href="#">track 4</a>
+						  </div>
+						</div>			
+					
+					</div>
+				</div>	
+
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
+						<h1> 12 km/h </h1>
+					</div>
+				</div>	
+
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
+						<h2>15km</h2>
+					</div>
+				</div>
+				
 			</div>
-
-			<div class="col-sm-1">
-			</div>
-
-			<div class="file btn-lg btn-primary btn btn-outline-secondary col-sm-2  ">
-							Upload
-				<input type="file" name="file" id="fileInput"/>
-			</div>
-
+			
 		</div>
 	</div>
+	
+	
+<!-- MAP and side bar facts 
+
+				<div id='map' style=' min-height:250px;'></div>
+				-->
+
+<!-- END -->
 
 
-	<div class="container-fluid">
-		<div class="row" >
-			<div class="col-sm-8" style="background-color: red"></div>
-
-			<div class="col-sm-4 row center-text">
-				<div class="col-sm-12">
-					15km/h
-				</div>
-
-				<div class="col-sm-12">
-					12km
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-  <script src="js/chart.js"></script>
-  <script src='js/togeojson.js'></script>
-  <script src='js/fileReader.js'></script>
-  <div id='map' style='width: 1000px; height: 500px;'></div>
   <script src="js/map.js"></script>
+    <script src="js/chart.js"></script>
 
   </body>
 
