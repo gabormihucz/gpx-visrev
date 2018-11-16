@@ -18,13 +18,26 @@ function populateMap(data) {
   // For time and heartbeat and other data, more digging is needed in the GeoJSON
   var extracted = data.features[0].geometry.coordinates;
   var coord = [];
+
   extracted.forEach(element => {
     coord.push([element[0], element[1]]);
   });
-  map.flyTo({
-    center: [extracted[0][0], extracted[0][1]],
-    zoom: 14
+
+  /** fly to the track and fit the map perfectly to it*/
+  lat=[]
+  lon=[]
+  coord.forEach(element => {
+    lat.push(element[0]);
   });
+  coord.forEach(element => {
+    lon.push(element[1]);
+  });
+
+  var bbox = [[Math.min(...lat), Math.min(...lon)], [Math.max(...lat), Math.max(...lon)]];
+  map.fitBounds(bbox, {
+    padding: {top: 10, bottom:25, left: 15, right: 5}
+  });
+
 
   if (map.getLayer("route") !== undefined) {
     map.removeLayer("route");
