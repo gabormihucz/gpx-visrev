@@ -74,11 +74,25 @@ function populateMap(data) {
           data: elev,
           label: extracted_properties.name,
           borderColor: "#3e95cd",
-          fill: false
+          fill: true,
+		  		backgroundColor: "rgba(62, 149, 205,1)",
+		pointRadius: 0,
+		pointBackgroundColor: "white"
         }
       ]
     },
     options: {
+		
+	  scales:{
+		  xAxes: [{
+			  gridLines : {
+                display : false
+			  },
+			  ticks: {
+				  display: false
+			  }
+		  }]
+	  },
       title: {
         display: true,
         text: 'Elevation of the selected track',
