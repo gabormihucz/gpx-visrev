@@ -17,13 +17,18 @@ function populateMap(data) {
   // data is the GeoJSON file, extracted is the first data point of longitude, latitude, elevation
   // data.features[0].geometry.coordinates is the set of all long-lat-ele data points from the GPX
   // For time and heartbeat and other data, more digging is needed in the GeoJSON
+  // properties got time, the name of the track, and type of track (e.g. running). cant find the heartrate
   const extracted = data.features[0].geometry.coordinates;
+  const extracted_properties = data.features[0].properties;
+
   const pDensity = 30;
   var coord = [];
+  var elev = [];
   var points = [];
   var index = 0;
   extracted.forEach(element => {
     coord.push([element[0], element[1]]);
+    elev.push(element[2]);
     if (index % pDensity === 0) {
       points.push({
         type: "Feature",
@@ -54,6 +59,40 @@ function populateMap(data) {
   map.fitBounds(bbox, {
     padding: { top: 10, bottom: 25, left: 15, right: 5 }
   });
+
+
+
+  /** create new chart based on upload:
+   *  x axis: time in ISO format, y axis: elevation
+   */
+  new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+     
+      labels: extracted_properties.coordTimes,
+      datasets: [{ 
+          data: elev,
+          label: extracted_properties.name,
+          borderColor: "#3e95cd",
+          fill: false
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Elevation of the selected track',
+      },
+    responsive: true,
+    maintainAspectRatio: false,
+    }
+
+});
+
+
+
+
+
 
   if (map.getLayer("route") !== undefined) {
     map.removeLayer("route");
