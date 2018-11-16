@@ -1,4 +1,3 @@
-window.onload = function() {
   var fileInput = document.getElementById("fileInput");
   fileInput.addEventListener("change", function(e) {
     var file = fileInput.files[0];
@@ -17,4 +16,4 @@ window.onload = function() {
       fileDisplayArea.innerText = "File not supported!";
     }
   });
-};
+
