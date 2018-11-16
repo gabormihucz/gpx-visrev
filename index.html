@@ -39,74 +39,75 @@
   </head>
 
   <body>
-    <!-- Top bar name -->
-    <nav class="navbar navbar-dark bg-info" style="height:15%">
-      <p class="navbar-brand mx-auto">GPX VisRev</p>
-    </nav>
-    <!-- Top level - graph and upload -->
-    <div class="container-fluid">
-      <div
-        class="row align-items-center"
-        style="height: 25%; margin-bottom: 1%;"
-      >
-        <div class="col-md-8 h-100"><canvas id="line-chart"></canvas></div>
 
-        <div
-          class="file btn-lg btn-primary btn btn-outline-secondary col-sm-2  "
-        >
-          Upload <input type="file" name="file" id="fileInput" />
-        </div>
-        <!--
-          code
+<!-- Top bar name -->
+	<nav class="navbar navbar-dark bg-info" style="height:15%">
+		<p class="navbar-brand mx-auto">GPX VisRev</p>
+	</nav>
+<!-- Top level - graph and upload -->
+	<div class="container-fluid">
+		<div class="row align-items-center" style="height: 25%; margin-bottom: 1%;">
+			<div class="col-md-8 h-100">
+				<canvas id="line-chart"></canvas> 
+			</div>
+			
 
-          <div class="col-md-4 col-sm-12 file">
 
-          <input type="file" name="file" id="fileInput">
-          	<button type="button" class="btn btn-secondary btn-lg btn-block">Upload</button>
-          	</input>
-          </div>
-        -->
-      </div>
-      <!-- Map + side bar info -->
-      <div class="row align-items-center">
-        <div class="col-md-8 h-100"><div id="map" class="h-100"></div></div>
+			
+			<div class="col-md-4 col-sm-12 file">
+				<input class="btn btn-secondary btn-lg btn-block" type="file" name="file" id="fileInput"/>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">Upload</button>
+				
+			</div>
+		</div>
+<!-- Map + side bar info -->
+		<div class="row align-items-center">
+			<div class="col-md-8 h-100">
+				<div id='map' class="h-100">
+				</div>
+			</div>	
+			
+			<div class="container-fluid col-md-4 h-100">
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
 
-        <div class="container-fluid col-md-4 h-100">
-          <div class="row align-items-center" style="height:33%">
-            <div class="col-md-12 center-text">
-              <div class="dropdown w-100">
-                <button class="dropbtn btn btn-secondary btn-lg btn-block">
-                  Track 1
-                </button>
-                <div class="dropdown-content w-100">
-                  <a href="#">track 2</a> <a href="#">track 3</a>
-                  <a href="#">track 4</a>
-                </div>
-              </div>
-            </div>
-          </div>
+						<div class="dropdown w-100">
+						  <button class="dropbtn btn btn-secondary btn-lg btn-block">Track 1</button>
+						  <div class="dropdown-content w-100">
+							<a href="#">track 2</a>
+							<a href="#">track 3</a>
+							<a href="#">track 4</a>
+						  </div>
+						</div>			
+					
+					</div>
+				</div>	
 
-          <div class="row align-items-center" style="height:33%">
-            <div class="col-md-12 center-text"><h1>12 km/h</h1></div>
-          </div>
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
+						<h1> 12 km/h </h1>
+					</div>
+				</div>	
 
-          <div class="row align-items-center" style="height:33%">
-            <div class="col-md-12 center-text"><h2>15km</h2></div>
-          </div>
-        </div>
-      </div>
-    </div>
+				<div class="row align-items-center" style="height:33%">
+					<div class="col-md-12 center-text">
+						<h2>15km</h2>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	
 
-    <!--
-      MAP and side bar facts
 
-      <div id='map' style=' min-height:250px;'></div>
-    -->
+<!-- END -->
+  <script src="js/chart.js"></script>
+  <script src='js/togeojson.js'></script>
+  <script src='js/fileReader.js'></script>
+  <script src="js/map.js"></script>
 
-    <!-- END -->
-    <script src="js/chart.js"></script>
-    <script src="js/togeojson.js"></script>
-    <script src="js/fileReader.js"></script>
-    <script src="js/map.js"></script>
+   
   </body>
 </html>
