@@ -11,24 +11,41 @@ function populateMap(data) {
   /*
    * Function takes the data, flies to first coordinate, and plots all coordinates.
    * It also removes previous plot from the map, we need to delete both the layer, and the source.
+   * pDensity is frequency of markers, per datapoint.
    */
 
   // data is the GeoJSON file, extracted is the first data point of longitude, latitude, elevation
   // data.features[0].geometry.coordinates is the set of all long-lat-ele data points from the GPX
   // For time and heartbeat and other data, more digging is needed in the GeoJSON
-  var extracted = data.features[0].geometry.coordinates;
+  const extracted = data.features[0].geometry.coordinates;
+  const pDensity = 20;
   var coord = [];
+  var points = [];
+  var index = 0;
+
   extracted.forEach(element => {
     coord.push([element[0], element[1]]);
+    if (index % pDensity === 0) {
+      points.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [element[0], element[1]]
+        }
+      });
+    }
+    index++;
   });
   map.flyTo({
-    center: [extracted[0][0], extracted[0][1]],
+    center: coord[0],
     zoom: 14
   });
 
   if (map.getLayer("route") !== undefined) {
     map.removeLayer("route");
     map.removeSource("route");
+    map.removeLayer("points");
+    map.removeSource("points");
   }
 
   map.addLayer({
@@ -52,6 +69,21 @@ function populateMap(data) {
     paint: {
       "line-color": "#ff69b4",
       "line-width": 4
+    }
+  });
+
+  map.addLayer({
+    id: "points",
+    type: "circle",
+    source: {
+      type: "geojson",
+      data: {
+        type: "FeatureCollection",
+        features: points
+      }
+    },
+    paint: {
+      "circle-color": "#32cd32"
     }
   });
 }
