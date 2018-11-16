@@ -1,6 +1,7 @@
 window.onload = function() {
   var fileInput = document.getElementById("fileInput");
   fileInput.addEventListener("change", function(e) {
+    console.log("tEST");
     var file = fileInput.files[0];
     var fileType = ".gpx";
     if (file.name.includes(fileType)) {

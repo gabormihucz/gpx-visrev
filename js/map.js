@@ -22,7 +22,6 @@ function populateMap(data) {
   var coord = [];
   var points = [];
   var index = 0;
-
   extracted.forEach(element => {
     coord.push([element[0], element[1]]);
     if (index % pDensity === 0) {
@@ -37,9 +36,23 @@ function populateMap(data) {
     }
     index++;
   });
-  map.flyTo({
-    center: coord[0],
-    zoom: 14
+
+  /** fly to the track and fit the map perfectly to it*/
+  lat = [];
+  lon = [];
+  coord.forEach(element => {
+    lat.push(element[0]);
+  });
+  coord.forEach(element => {
+    lon.push(element[1]);
+  });
+
+  var bbox = [
+    [Math.min(...lat), Math.min(...lon)],
+    [Math.max(...lat), Math.max(...lon)]
+  ];
+  map.fitBounds(bbox, {
+    padding: { top: 10, bottom: 25, left: 15, right: 5 }
   });
 
   if (map.getLayer("route") !== undefined) {
