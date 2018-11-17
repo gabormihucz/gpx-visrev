@@ -1,30 +1,31 @@
-window.onload = function () {
-new Chart(document.getElementById("line-chart"), {
-  type: 'line',
-  data: {
-	
-    labels: [1,2,3,4,5],
-    datasets: [{ 
-        data: [4,5,77,6,5],
-        label: "Track1",
-        borderColor: "#3e95cd",
-        fill: false
-      }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Elevation of the selected track',
+window.onload = function() {
+  new Chart(document.getElementById("line-chart"), {
+    type: "line",
+    data: {
+      labels: [1, 2, 3, 4, 5],
+      datasets: [
+        {
+          data: [4, 5, 77, 6, 5],
+          label: "Track1",
+          borderColor: "#3e95cd",
+          fill: false
+        }
+      ]
     },
-	responsive: true,
-	maintainAspectRatio: false,
-  }
-});
+    options: {
+      title: {
+        display: true,
+        text: "Elevation of the selected track"
+      },
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  });
 
-var currentWindowHeight = $(window).height()
+  var currentWindowHeight = $(window).height();
+};
 
-}
+var currentChart;
 
 function populateChart(data) {
   const extracted = data.features[0].geometry.coordinates;
@@ -42,11 +43,9 @@ function populateChart(data) {
     elev.push(element[2]);
   });
 
-
   /** get distances between measured points and put them in an array */
 
   function distance(lat1, lon1, lat2, lon2) {
-
     var p = 0.017453292519943295; // Math.PI / 180
     var c = Math.cos;
     var a =
@@ -85,7 +84,11 @@ function populateChart(data) {
   totalDistance(distances);
   console.log(speeds);
 
-  new Chart(document.getElementById("line-chart"), {
+  if (currentChart !== undefined) {
+    currentChart.destroy();
+  }
+
+  currentChart = new Chart(document.getElementById("line-chart"), {
     type: "line",
     data: {
       labels: extracted_properties.coordTimes,
