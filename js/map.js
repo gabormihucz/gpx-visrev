@@ -6,7 +6,8 @@ var map = new mapboxgl.Map({
   center: [-8.044135, 37.063142],
   zoom: 12
 });
-
+var elev = [];
+var speeds=[];
 function populateMap(data) {
   /*
    * Function takes the data, flies to first coordinate, and plots all coordinates.
@@ -23,7 +24,7 @@ function populateMap(data) {
 
   const pDensity = 30;
   var coord = [];
-  var elev = [];
+  
   var points = [];
   var index = 0;
   extracted.forEach(element => {
@@ -89,7 +90,7 @@ for (i = 1; i < extracted_properties.coordTimes.length; i++) {
 
 /** divide distance by time to get speed */
 
-speeds=[]
+
 var i;
 for (i = 0; i < times.length; i++) {
     speeds.push(distances[i]/times[i]);
@@ -137,7 +138,7 @@ totalDistance(distances);
     maintainAspectRatio: false,
     }
 
-});
+  });
 
 
 
