@@ -94,7 +94,9 @@ var i;
 for (i = 0; i < times.length; i++) {
     speeds.push(distances[i]/times[i]);
 } 
-console.log(speeds);
+console.log(distances);
+averageSpeed(speeds);
+totalDistance(10);
 
   /** create new chart based on upload:
    *  x axis: time in ISO format, y axis: elevation
