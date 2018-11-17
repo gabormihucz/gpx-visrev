@@ -10,10 +10,8 @@ function totalDistance(dists){
 	}
 	total /=1000;
 	total = Math.round(total * 100) / 100;
-
-	console.log(dists);
-	$('#distance').css('font-weight', 'bold');
-	$('#distance').css('color', getColor(dists,colors));
+	console.log(Math.round(total));
+	$('#distance').css('color', getColor(Math.round(total),colors));
 	var percent_number_step = $.animateNumber.numberStepFactories.append(' km')
 	$('#distance').animateNumber(
 		  {
