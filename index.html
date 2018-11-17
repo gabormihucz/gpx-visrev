@@ -11,7 +11,10 @@
 
     <title>GPX VisRev</title>
     <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
@@ -40,125 +43,120 @@
   </head>
 
   <body>
+    <!-- Top bar name -->
+    <nav class="navbar navbar-dark bg-info col-12" style="height:10%">
+      <p class="navbar-brand mx-auto">GPX VisRev</p>
+    </nav>
+    <!-- Top level - graph and upload -->
+    <div id="main" class="container-fluid col-12">
+      <div
+        class="row align-items-center"
+        style="height: 25%; margin-bottom: 1%;"
+      >
+        <div class="col-md-8 col-12 h-100">
+          <canvas id="line-chart"></canvas>
+        </div>
 
-<!-- Top bar name -->
-	<nav class="navbar navbar-dark bg-info col-12" style="height:10%">
-		<p class="navbar-brand mx-auto">GPX VisRev</p>
-	</nav>
-<!-- Top level - graph and upload -->
-	<div id="main" class="container-fluid col-12">
-		<div class="row align-items-center" style="height: 25%; margin-bottom: 1%;">
-			<div class="col-md-8 col-12 h-100">
-				<canvas id="line-chart"></canvas> 
-			</div>
-			
+        <div class="col-md-4 col-12 file">
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block upload"
+          >
+            <input
+              class="btn btn-secondary btn-lg btn-block"
+              type="file"
+              name="file"
+              id="fileInput"
+            />
 
+            <i class="fa fa-upload" style="font-size:20px"></i>
 
-			
-			<div class="col-md-4 col-12 file">
-				
-				<button type="button" class="btn btn-secondary btn-lg btn-block upload">
-					<input class="btn btn-secondary btn-lg btn-block" type="file" name="file" id="fileInput"/>
-					
-					<i class="fa fa-upload" style="font-size:20px"></i>
-				
-				Upload</button>
-				
-			</div>
-		</div>
-<!-- Map + side bar info -->
-		<div class="row align-items-center">
-			<div class="col-md-8 col-12 h-100">
-				<div id='map' class="h-100">
-				</div>
-			</div>	
-			
-			<div class="container-fluid col-12 col-md-4">
-				<div class="row h-25">
-					<div class="col-md-12 col-12 center-text">
-						
-						<div class="col-md-12 left_btn">
-				
-							<button id="toggle" type="button" class="btn btn-secondary fly btn-lg btn-block">
-									Elevation
-				
-							</button>
-				
-						</div>
-		
-					
-					</div>
-				</div>	
-				
-				<div class="row h-25">
-					<div class="col-md-12 col-12 center-text">
-						
-						<div id="flyTo" class="col-md-12 left_btn">
-				
-							<button id="toggle" type="button" class="btn btn-secondary fly btn-lg btn-block">
-									FlyTo
-				
-							</button>
-				
-						</div>
-		
-					
-					</div>
-				</div>	
+            Upload
+          </button>
+        </div>
+      </div>
+      <!-- Map + side bar info -->
+      <div class="row align-items-center">
+        <div class="col-md-8 col-12 h-100">
+          <div id="map" class="h-100"></div>
+        </div>
 
-				<div class="row grad left-stats">
-					<div class="col-md-12 col-12 center-text">
-						<h1 class="metrics" id="speed">  </h1>
-					</div>
-				</div>	
+        <div class="container-fluid col-12 col-md-4">
+          <div class="row h-25">
+            <div class="col-md-12 col-12 center-text">
+              <div class="col-md-12 left_btn">
+                <button
+                  id="toggle"
+                  type="button"
+                  class="btn btn-secondary fly btn-lg btn-block"
+                >
+                  Elevation
+                </button>
+              </div>
+            </div>
+          </div>
 
-				<div class="row grad left-stats" >
-					<div class="col-md-12 col-12 center-text">
-						<h2 class="metrics" id = "distance"> </h2>
-					</div>
-				</div>
-				
-				<div class="row grad" >
-					<div class="col-md-12 center-text">
-						<div style="background: linear-gradient(to right	, #0E78F6 0%, #25CC24 100%);height:25px"></div>
-					</div>
-				</div>
-				<div class="row grad" >
-					<div class="col-6">
-						<p class="legend">5km/h < <br> 
-						1km <
-						</p>
-					</div>
-					
-					<div  class="col-6" style="text-align:right">
-						<p class="legend"> >30km/h<br> 
-						>25km
-						</p>
-						
-					</div>
-					
-				</div>
-				
-			</div>
-			
-		</div>
-	</div>
-	
+          <div class="row h-25">
+            <div class="col-md-12 col-12 center-text">
+              <div id="flyTo" class="col-md-12 left_btn">
+                <button
+                  id="flyTo"
+                  type="button"
+                  class="btn btn-secondary fly btn-lg btn-block"
+                >
+                  FlyTo
+                </button>
+              </div>
+            </div>
+          </div>
 
+          <div class="row grad left-stats">
+            <div class="col-md-12 col-12 center-text">
+              <h1 class="metrics" id="speed"></h1>
+            </div>
+          </div>
 
-<!-- END -->
-  
-  <script src='js/togeojson.js'></script>
-  <script src='js/fileReader.js'></script>
-  <script src="js/map.js"></script>
-  <script src="js/chart.js"></script>
-  <script src="js/jquery.animateNumber.js"></script>
-  <script src="js/speed.js"></script>
-  <script src="js/distance.js"></script>
-  <script src="js/toggle_speed.js"></script>
-  
+          <div class="row grad left-stats">
+            <div class="col-md-12 col-12 center-text">
+              <h2 class="metrics" id="distance"></h2>
+            </div>
+          </div>
 
+          <div class="row grad">
+            <div class="col-md-12 center-text">
+              <div
+                style="background: linear-gradient(to right	, #0E78F6 0%, #25CC24 100%);height:25px"
+              ></div>
+            </div>
+          </div>
+          <div class="row grad">
+            <div class="col-6">
+              <p class="legend">
+                5km/h < <br />
+                1km <
+              </p>
+            </div>
 
-   
+            <div class="col-6" style="text-align:right">
+              <p class="legend">
+                >30km/h<br />
+                >25km
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END -->
+
+    <script src="js/togeojson.js"></script>
+    <script src="js/fileReader.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/jquery.animateNumber.js"></script>
+    <script src="js/speed.js"></script>
+    <script src="js/distance.js"></script>
+    <script src="js/toggle_speed.js"></script>
   </body>
 </html>
