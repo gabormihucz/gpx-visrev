@@ -38,6 +38,7 @@ fileInput.addEventListener("change", function(e) {
       var dom = new DOMParser().parseFromString(reader.result, "text/xml");
       var json = toGeoJSON.gpx(dom);
       var values = populateMap(json, queue.getPointer());
+      populateChart(json);
       queue.push(values);
     };
 
