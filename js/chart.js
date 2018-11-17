@@ -66,19 +66,37 @@ function populateChart(data) {
     );
   }
 
-  /** get the time intervals between measure points  */
+  /** times the time intervals between measure points 
+   *  times_stamps stores the actual time at measure points as strings i.e. hh:mm:ss
+    */
+
   times = [];
+  var time_stamps = [];
   var i;
   for (i = 1; i < extracted_properties.coordTimes.length; i++) {
     var d1 = new Date(extracted_properties.coordTimes[i - 1]),
       d2 = new Date(extracted_properties.coordTimes[i]);
     times.push((d2 - d1) / 1000);
+    d1 = d1+'';
+    split_date = d1.split(" ");
+    time_stamps.push(split_date[4]);
+    if (i=== extracted_properties.coordTimes.length -1 ) {
+      d2=d2+'';
+      split_date = d2.split(" ");
+      time_stamps.push(split_date[4]);
+    }
   }
+  var start_time = new Date(extracted_properties.coordTimes[0]);
+  var end_time =   new Date(extracted_properties.coordTimes[extracted_properties.coordTimes.length -1]);
+  var time_spent = (end_time-start_time)/1000;  // total time spent running
+  var dmy = start_time + '';
+  dmy = dmy.slice(0,15); // date of the run, e.g. Sat Aug 27 2017
+
+
 
   /** divide distance by time to get speed */
 
-  var i;
-  for (i = 0; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     speeds.push(distances[i] / times[i]);
   }
   //console.log(distances);
@@ -100,9 +118,7 @@ function populateChart(data) {
       }
     }
   }
-
-  console.log(up_and_down);
-
+  /** up_and_down stores distance taken going uphill (first element), downhill (second element) and going on a flat surface (third element)*/
 
   if (currentChart !== undefined) {
     currentChart.destroy();
@@ -111,7 +127,7 @@ function populateChart(data) {
   currentChart = new Chart(document.getElementById("line-chart"), {
     type: "line",
     data: {
-      labels: extracted_properties.coordTimes,
+      labels: time_stamps,
       datasets: [
         {
           data: elev,
