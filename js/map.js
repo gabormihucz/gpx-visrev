@@ -6,8 +6,9 @@ var map = new mapboxgl.Map({
   center: [-8.044135, 37.063142],
   zoom: 12
 });
-var elev = [];
-var speeds=[];
+
+
+
 function populateMap(data) {
   /*
    * Function takes the data, flies to first coordinate, and plots all coordinates.
@@ -24,7 +25,8 @@ function populateMap(data) {
 
   const pDensity = 30;
   var coord = [];
-  
+  var elev = [];
+  var speeds=[];
   var points = [];
   var index = 0;
   extracted.forEach(element => {
