@@ -62,8 +62,6 @@ function populateMap(data) {
 
 
 /** get distances between measured points and put them in an array */
-/** have doubts about the results, need to be checked that this is working properly 
-**  speeds seem to be way too low */
 
 function distance(lat1, lon1, lat2, lon2) {
   var p = 0.017453292519943295;    // Math.PI / 180
@@ -86,7 +84,7 @@ var i;
 for (i = 1; i < extracted_properties.coordTimes.length; i++) {
     var d1 = new Date(extracted_properties.coordTimes[i-1]), 
         d2 = new Date(extracted_properties.coordTimes[i]);
-        times.push(d2-d1);
+        times.push((d2-d1)/1000); 
 } 
 
 /** divide distance by time to get speed */
@@ -96,7 +94,7 @@ var i;
 for (i = 0; i < times.length; i++) {
     speeds.push(distances[i]/times[i]);
 } 
-
+console.log(speeds);
 
   /** create new chart based on upload:
    *  x axis: time in ISO format, y axis: elevation
