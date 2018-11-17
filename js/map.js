@@ -61,6 +61,38 @@ function populateMap(data) {
   });
 
 
+/** get distances between measured points and put them in an array */
+
+function distance(lat1, lon1, lat2, lon2) {
+  var p = 0.017453292519943295;    // Math.PI / 180
+  var c = Math.cos;
+  var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+          c(lat1 * p) * c(lat2 * p) * 
+          (1 - c((lon2 - lon1) * p))/2;
+
+  return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+}
+var distances  = []
+var i;
+for (i = 1; i < coord.length; i++) {
+    distances.push((distance(coord[i-1][0],coord[i-1][1],coord[i][0],coord[i][1]))*1000)
+} 
+
+/** get the time intervals between measure points  */
+times=[];
+var i;
+for (i = 1; i < extracted_properties.coordTimes.length; i++) {
+    var d1 = new Date(extracted_properties.coordTimes[i-1]), 
+        d2 = new Date(extracted_properties.coordTimes[i]);
+        times.push(d2-d1);
+} 
+
+speeds=[]
+var i;
+for (i = 0; i < times.length; i++) {
+    speeds.push(distances[i]/times[i]);
+} 
+
 
   /** create new chart based on upload:
    *  x axis: time in ISO format, y axis: elevation
