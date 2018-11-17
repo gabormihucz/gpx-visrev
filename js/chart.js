@@ -27,6 +27,17 @@ window.onload = function() {
 
 var currentChart;
 
+  function distance(lat1, lon1, lat2, lon2) {
+    var p = 0.017453292519943295; // Math.PI / 180
+    var c = Math.cos;
+    var a =
+      0.5 -
+      c((lat2 - lat1) * p) / 2 +
+      (c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))) / 2;
+
+    return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+  }
+
 function populateChart(data) {
   const extracted = data.features[0].geometry.coordinates;
   const extracted_properties = data.features[0].properties;
@@ -45,16 +56,7 @@ function populateChart(data) {
 
   /** get distances between measured points and put them in an array */
 
-  function distance(lat1, lon1, lat2, lon2) {
-    var p = 0.017453292519943295; // Math.PI / 180
-    var c = Math.cos;
-    var a =
-      0.5 -
-      c((lat2 - lat1) * p) / 2 +
-      (c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))) / 2;
 
-    return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-  }
   var distances = [];
   var i;
   for (i = 1; i < coord.length; i++) {
@@ -82,7 +84,25 @@ function populateChart(data) {
   //console.log(distances);
   averageSpeed(speeds);
   totalDistance(distances);
-  console.log(speeds);
+
+  elev_diff = []
+  for (var i=1;i<elev.length;i++){
+    elev_diff.push(elev[i]-elev[i-1]);
+  }
+  up_and_down = [0,0,0];
+  for (var i=0;i<elev_diff.length;i++){
+    var tiny_dist = distance(lat[i-1], lon[i-1], lat[i], lon[i]);
+    if (elev_diff[i]>0 && !isNaN(tiny_dist)) {up_and_down[0]+= tiny_dist; }
+    else if (elev_diff[i]<0 && !isNaN(tiny_dist)) {up_and_down[1]+= tiny_dist; }
+    else {
+      if (!isNaN(tiny_dist)) {
+        up_and_down[2] += tiny_dist;
+      }
+    }
+  }
+
+  console.log(up_and_down);
+
 
   if (currentChart !== undefined) {
     currentChart.destroy();

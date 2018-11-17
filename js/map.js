@@ -62,6 +62,9 @@ function populateMap(data, index) {
 
   popLayer(index);
 
+
+
+
   var colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
 
   map.addLayer({
