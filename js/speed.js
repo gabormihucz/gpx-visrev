@@ -10,9 +10,19 @@ function averageSpeed(speeds) {
 	var avg = Math.round(total / speeds.length);
 	
 	$('#speed').css('font-weight', 'bold');
-	$('#speed').text(avg + " km/h");
+	
 	$('#speed').css('color', getColor(avg,colors));
-	$('.grad').css('visibility', 'visible');
+	
+	var percent_number_step = $.animateNumber.numberStepFactories.append(' km/h')
+	$('#speed').animateNumber(
+		  {
+			number: avg,
+			easing: 'easeInQuad',
+
+			numberStep: percent_number_step
+		  },
+		  1000
+		);
 
 };
 

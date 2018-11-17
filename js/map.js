@@ -111,7 +111,7 @@ totalDistance(10);
           label: extracted_properties.name,
           borderColor: "#3e95cd",
           fill: true,
-		  		backgroundColor: "rgba(62, 149, 205,1)",
+		  		backgroundColor: "rgba(62, 149, 205,0.8)",
 		pointRadius: 0,
 		pointBackgroundColor: "white"
         }

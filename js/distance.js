@@ -6,20 +6,20 @@ function totalDistance(dists){
 	
 	console.log(dists);
 	$('#distance').css('font-weight', 'bold');
-	$('#distance').text(dist + " km");
 	$('#distance').css('color', getColor(dist,colors));
+	var percent_number_step = $.animateNumber.numberStepFactories.append(' km')
+	$('#distance').animateNumber(
+		  {
+			number: dist,
+			easing: 'easeInQuad',
+
+			numberStep: percent_number_step
+		  },
+		  1000
+		);
+	$('.grad').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0},1000);
 	
 
 	
 
-};
-
-function getColor(factor,colors) {
-	if (factor <= 1){
-		return colors[0];
-	}else if (factor >=25){
-		return colors[24]
-	}else{
-		return colors[factor-1];
-	}
 };
