@@ -9,19 +9,29 @@ new Chart(document.getElementById("line-chart"), {
         label: "Track1",
         borderColor: "#3e95cd",
         fill: true,
-		backgroundColor: "rgba(62, 149, 205,1)",
+		backgroundColor: "rgba(62, 149, 205,0.8)",
 		pointRadius: 0,
 		pointBackgroundColor: "white"
       }
     ]
   },
   options: {
-    title: {
-      display: true,
-      text: 'Elevation of the selected track',
-    },
-	responsive: true,
-	maintainAspectRatio: false,
+	  scales:{
+		  xAxes: [{
+			  gridLines : {
+                display : false
+			  },
+			  ticks: {
+				  display: false
+			  }
+		  }]
+	  },
+      title: {
+        display: true,
+        text: 'Elevation of the selected track',
+      },
+    responsive: true,
+    maintainAspectRatio: false,
   }
 });
 
