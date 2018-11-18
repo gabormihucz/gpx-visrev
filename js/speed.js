@@ -7,7 +7,7 @@ function averageSpeed(speeds) {
 	for(var i = 0; i < speeds.length; i++) {
 		total += speeds[i];
 	}
-	var avg = Math.round((total / speeds.length)*3.6);
+	var avg = Math.round((total / speeds.length));
 	
 	$('#speed').css('font-weight', 'bold');
 	
