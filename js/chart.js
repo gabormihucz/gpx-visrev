@@ -159,22 +159,24 @@ function populateChart(data) {
       datasets: [
 	  	{
           data: speeds,
-          label: 'Speed',
+          label: 'Speed (y-left)',
           borderColor: "#ff1a1a",
           fill: true,
           backgroundColor: "rgba(255, 26, 26,0.8)",
           pointRadius: 0,
-          pointBackgroundColor: "white"
+          pointBackgroundColor: "white",
+		  yAxisID: 'A',
         },
 		
         {
           data: elev,
-          label: 'Elevation',
+          label: 'Elevation (y-right)',
           borderColor: "#3e95cd",
           fill: true,
           backgroundColor: "rgba(62, 149, 205,0.8)",
           pointRadius: 0,
-          pointBackgroundColor: "white"
+          pointBackgroundColor: "white",
+		  yAxisID: 'B',
         },
 		
 
@@ -200,7 +202,18 @@ function populateChart(data) {
 			  mirror: true,
             }
           }
-        ]
+        ],
+		
+		yAxes: [{
+			id: 'A',
+			type: 'linear',
+			position: 'left',
+		  }, {
+			id: 'B',
+			type: 'linear',
+			position: 'right',
+			}]
+	  
       },
       title: {
         display: true,
