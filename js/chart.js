@@ -108,7 +108,7 @@ function populateChart(data) {
   }
   var start_time = new Date(extracted_properties.coordTimes[0]);
   var end_time =   new Date(extracted_properties.coordTimes[extracted_properties.coordTimes.length -1]);
-  var time_spent = (end_time-start_time)/1000;  // total time spent running
+  var time_spent = (end_time-start_time)/1000;  // total time spent running in seconds
   var dmy = start_time + '';
   dmy = dmy.slice(0,15); // date of the run, e.g. Sat Aug 27 2017
 
@@ -124,14 +124,15 @@ function populateChart(data) {
   totalDistance(distances);
   timeSpent(time_spent);
   
-
+  /** up_and_down stores distance taken going uphill (first element), downhill (second element) and going on a flat surface (third element) in meters*/
+  up_and_down = [0,0,0];
   elev_diff = []
   for (var i=1;i<elev.length;i++){
     elev_diff.push(elev[i]-elev[i-1]);
   }
-  up_and_down = [0,0,0];
+  
   for (var i=0;i<elev_diff.length;i++){
-    var tiny_dist = distance(lat[i-1], lon[i-1], lat[i], lon[i]);
+    var tiny_dist = distance(lat[i-1], lon[i-1], lat[i], lon[i])*1000;
     if (elev_diff[i]>0 && !isNaN(tiny_dist)) {up_and_down[0]+= tiny_dist; }
     else if (elev_diff[i]<0 && !isNaN(tiny_dist)) {up_and_down[1]+= tiny_dist; }
     else {
@@ -140,7 +141,9 @@ function populateChart(data) {
       }
     }
   }
-  /** up_and_down stores distance taken going uphill (first element), downhill (second element) and going on a flat surface (third element)*/
+  for (var i =0; i<up_and_down.length; i++){
+    up_and_down[i] = Math.round(up_and_down[i]);
+  }
 
   
   upDown(up_and_down);
