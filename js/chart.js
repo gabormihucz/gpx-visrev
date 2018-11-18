@@ -154,6 +154,16 @@ function populateChart(data) {
     data: {
       labels: time_stamps,
       datasets: [
+	  	{
+          data: speeds,
+          label: 'Speed',
+          borderColor: "#ff1a1a",
+          fill: true,
+          backgroundColor: "rgba(255, 26, 26,0.8)",
+          pointRadius: 0,
+          pointBackgroundColor: "white"
+        },
+		
         {
           data: elev,
           label: extracted_properties.name,
@@ -162,8 +172,15 @@ function populateChart(data) {
           backgroundColor: "rgba(62, 149, 205,0.8)",
           pointRadius: 0,
           pointBackgroundColor: "white"
-        }
+        },
+		
+
+		
+		
       ]
+	  
+	  
+	  
     },
     options: {
       scales: {
@@ -177,6 +194,7 @@ function populateChart(data) {
 			  autoSkip: true,
 			  autoSkipPadding: 30,
 			  maxRotation: 0,
+			  mirror: true,
             }
           }
         ]

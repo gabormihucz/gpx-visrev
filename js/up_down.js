@@ -35,4 +35,9 @@ function upDown(up) {
     },
     1000
   );
+  
+  $("#flat").css('font-weight','normal');
+  $("#uphill").css('font-weight','normal');
+  $("#downhill").css('font-weight','normal');
+  $("#time_spent").css('font-weight','normal');
 }
