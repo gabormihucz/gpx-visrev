@@ -8,15 +8,35 @@ window.onload = function() {
           data: [4, 5, 77, 6, 5],
           label: "Track1",
           borderColor: "#3e95cd",
-          fill: false
+          fill: true,
+          backgroundColor: "rgba(62, 149, 205,0.8)",
+          pointRadius: 0,
+          pointBackgroundColor: "white"
+		  
         }
       ]
     },
     options: {
+      scales: {
+        xAxes: [
+          {
+            gridLines: {
+              display: false
+            },
+            ticks: {
+              display: true,
+			  autoSkip: true,
+			  autoSkipPadding: 30,
+			  maxRotation: 0,
+            }
+          }
+        ]
+      },
       title: {
         display: true,
         text: "Elevation of the selected track"
       },
+	  
       responsive: true,
       maintainAspectRatio: false
     }
@@ -102,6 +122,8 @@ function populateChart(data) {
   //console.log(distances);
   averageSpeed(speeds);
   totalDistance(distances);
+  timeSpent(time_spent);
+  
 
   elev_diff = []
   for (var i=1;i<elev.length;i++){
@@ -120,6 +142,9 @@ function populateChart(data) {
   }
   /** up_and_down stores distance taken going uphill (first element), downhill (second element) and going on a flat surface (third element)*/
 
+  
+  upDown(up_and_down);
+  
   if (currentChart !== undefined) {
     currentChart.destroy();
   }
@@ -148,7 +173,10 @@ function populateChart(data) {
               display: false
             },
             ticks: {
-              display: false
+              display: true,
+			  autoSkip: true,
+			  autoSkipPadding: 30,
+			  maxRotation: 0,
             }
           }
         ]

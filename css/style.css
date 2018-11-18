@@ -44,7 +44,6 @@ input {
 }
 .legend{
 	font-size: 0.8em;
-	text-shadow: 1px 1px 1px #BBBBBB;
 }
 .grad{
 	visibility: hidden;
@@ -100,4 +99,8 @@ input {
 #main{
 	position: absolute;
 	right: 0;
+}
+.detailed{
+	font-weight: 100;
+	font-size: 1em;
 }
