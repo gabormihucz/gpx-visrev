@@ -159,7 +159,7 @@ function populateChart(data) {
       datasets: [
 	  	{
           data: speeds,
-          label: 'Speed (y-left)',
+          label: 'Speed in km/h (y-left)',
           borderColor: "#ff1a1a",
           fill: true,
           backgroundColor: "rgba(255, 26, 26,0.8)",
@@ -170,7 +170,7 @@ function populateChart(data) {
 		
         {
           data: elev,
-          label: 'Elevation (y-right)',
+          label: 'Elevation in meters (y-right)',
           borderColor: "#3e95cd",
           fill: true,
           backgroundColor: "rgba(62, 149, 205,0.8)",
