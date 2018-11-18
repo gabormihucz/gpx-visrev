@@ -162,7 +162,7 @@ function populateChart(data) {
           label: 'Speed in km/h (y-left)',
           borderColor: "#ff1a1a",
           fill: true,
-          backgroundColor: "rgba(255, 26, 26,0.8)",
+          backgroundColor: "rgba(255, 26, 26,0.3)",
           pointRadius: 0,
           pointBackgroundColor: "white",
 		  yAxisID: 'A',
