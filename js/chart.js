@@ -117,7 +117,7 @@ function populateChart(data) {
   /** divide distance by time to get speed */
 
   for (var i = 0; i < times.length; i++) {
-    speeds.push(distances[i] / times[i]);
+    speeds.push((distances[i] / times[i])*3.6);
   }
   //console.log(distances);
   averageSpeed(speeds);
