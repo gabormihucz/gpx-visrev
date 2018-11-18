@@ -1,7 +1,7 @@
 function upDown(up) {
 
   //console.log(Math.round(total));
-  var percent_number_step = $.animateNumber.numberStepFactories.append(" km");
+  var percent_number_step = $.animateNumber.numberStepFactories.append(" m");
   $("#uphill").animateNumber(
     {
       number: up[0],
@@ -13,7 +13,7 @@ function upDown(up) {
   );
   
   
-  var percent_number_step = $.animateNumber.numberStepFactories.append(" km");
+  var percent_number_step = $.animateNumber.numberStepFactories.append(" m");
   $("#downhill").animateNumber(
     {
       number: up[1],
@@ -25,7 +25,7 @@ function upDown(up) {
   );
   
   
-  var percent_number_step = $.animateNumber.numberStepFactories.append(" km");
+  var percent_number_step = $.animateNumber.numberStepFactories.append(" m");
   $("#flat").animateNumber(
     {
       number: up[2],
