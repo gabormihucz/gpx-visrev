@@ -34,7 +34,7 @@ window.onload = function() {
       },
       title: {
         display: true,
-        text: "Elevation of the selected track"
+        text: "Elevation & Speed of the selected track"
       },
 	  
       responsive: true,
@@ -169,7 +169,7 @@ function populateChart(data) {
 		
         {
           data: elev,
-          label: extracted_properties.name,
+          label: 'Elevation',
           borderColor: "#3e95cd",
           fill: true,
           backgroundColor: "rgba(62, 149, 205,0.8)",
@@ -204,7 +204,7 @@ function populateChart(data) {
       },
       title: {
         display: true,
-        text: "Elevation of the selected track"
+        text: extracted_properties.name
       },
       responsive: true,
       maintainAspectRatio: false
