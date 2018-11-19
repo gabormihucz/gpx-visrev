@@ -37,7 +37,8 @@ fileInput.addEventListener("change", function(e) {
     reader.onload = function(e) {
       var dom = new DOMParser().parseFromString(reader.result, "text/xml");
       var json = toGeoJSON.gpx(dom);
-      var values = populateMap(json, queue.getPointer());
+      var colour = getColour();
+      var values = populateMap(json, queue.getPointer(), colour);
       populateChart(json);
       queue.push(values);
     };
@@ -51,3 +52,11 @@ fileInput.addEventListener("change", function(e) {
 document.getElementById("flyTo").addEventListener("click", function(e) {
   flyToNext(queue.getNext());
 });
+
+function getColour() {
+  var colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+  while (colour === "#DC143C") {
+    colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+  }
+  return colour;
+}

@@ -26,7 +26,7 @@ function flyToNext(vals) {
   populateChart(vals[3]);
 }
 
-function populateMap(data, index) {
+function populateMap(data, index, colour) {
   /*
    * Function takes the data, flies to first coordinate, and plots all coordinates.
    * It also removes previous plot from the map, we need to delete both the layer, and the source.
@@ -61,11 +61,6 @@ function populateMap(data, index) {
   });
 
   popLayer(index);
-
-
-
-
-  var colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
 
   map.addLayer({
     id: currentRoute,

@@ -56,50 +56,46 @@
         <div class="col-md-8 col-12 h-100">
           <canvas id="line-chart"></canvas>
         </div>
-		
-		<div class="container col-md-4 col-12">
-			<div class="row">
-				<div class="col-12 file">
-				  <button type="button" class="btn btn-secondary btn-lg btn-block upload">
-					<input class="btn btn-secondary btn-lg btn-block" type="file" name="file" id="fileInput" />
 
-					<i class="fa fa-upload" style="font-size:20px"></i>
+        <div class="container col-md-4 col-12">
+          <div class="row">
+            <div class="col-12 file">
+              <button
+                type="button"
+                class="btn btn-secondary btn-lg btn-block upload"
+              >
+                <input
+                  class="btn btn-secondary btn-lg btn-block"
+                  type="file"
+                  name="file"
+                  id="fileInput"
+                />
 
-					Upload
-				  </button>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-1 offset-1 offset-sm-1 offset-md-1 offset-lg-2">
-					<div class="square">
-					
-					</div>
-				</div>
-				<div class="col-1 offset-1">
-					<div class="square">
-					
-					</div>
-				</div>
-				<div class="col-1 offset-1">
-					<div class="square">
-					
-					</div>
-				</div>
-				<div class="col-1 offset-1">
-					<div class="square">
-					
-					</div>
-				</div>
-				<div class="col-1 offset-1">
-					<div class="square">
-					
-					</div>
-				</div>
-			
-			
-			</div>
-		</div>
+                <i class="fa fa-upload" style="font-size:20px"></i>
+
+                Upload
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 offset-1 offset-sm-1 offset-md-1 offset-lg-2">
+              <div class="square" id="square0"></div>
+            </div>
+            <div class="col-1 offset-1">
+              <div class="square" id="square1"></div>
+            </div>
+            <div class="col-1 offset-1">
+              <div class="square" id="square2"></div>
+            </div>
+            <div class="col-1 offset-1">
+              <div class="square" id="square3"></div>
+            </div>
+            <div class="col-1 offset-1">
+              <div class="square" id="square4"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Map + side bar info -->
       <div class="row align-items-center">
@@ -108,8 +104,6 @@
         </div>
 
         <div class="container-fluid col-12 col-md-4">
-
-
           <div class="row h-25">
             <div class="col-md-12 col-12 center-text">
               <div id="flyTo" class="col-md-12 left_btn">
@@ -158,49 +152,46 @@
               </p>
             </div>
           </div>
-		  
-		  
-		  <div class="row grad">
+
+          <div class="row grad">
             <div class="col-md-7 col-7 offset-1">
-				<p class="detailed">Total time spent:</p>
+              <p class="detailed">Total time spent:</p>
             </div>
-			
-			<div class="col-md-4 col-4 center-text">
-				<div class="detailed" id="time_spent"></div> 
+
+            <div class="col-md-4 col-4 center-text">
+              <div class="detailed" id="time_spent"></div>
             </div>
           </div>
-		  
-		  <div class="row grad">
+
+          <div class="row grad">
             <div class="col-md-7 col-7 offset-1">
-				<p class="detailed">Distance travelled uphill:</p>
+              <p class="detailed">Distance travelled uphill:</p>
             </div>
-			
-			<div class="col-md-4 col-4 center-text">
-				<div class="detailed" id="uphill"></div> 
+
+            <div class="col-md-4 col-4 center-text">
+              <div class="detailed" id="uphill"></div>
             </div>
           </div>
-		  
-		  
-		  <div class="row grad">
+
+          <div class="row grad">
             <div class="col-md-7 col-7 offset-1">
-				<p class="detailed">Distance travelled downhill:</p>
+              <p class="detailed">Distance travelled downhill:</p>
             </div>
-			
-			<div class="col-md-4 col-4 center-text">
-				<div class="detailed" id="downhill"></div> 
+
+            <div class="col-md-4 col-4 center-text">
+              <div class="detailed" id="downhill"></div>
             </div>
           </div>
-		  
-		  <div class="row grad">
+
+          <div class="row grad">
             <div class="col-md-7 col-7 offset-1">
-				<p class="detailed">Distance travelled horizontally:</p>
+              <p class="detailed">Distance travelled horizontally:</p>
             </div>
-			
-			<div class="col-md-4 col-4 center-text">
-				<div class="detailed" id="flat"></div> 
+
+            <div class="col-md-4 col-4 center-text">
+              <div class="detailed" id="flat"></div>
             </div>
           </div>
-		  
         </div>
       </div>
     </div>
@@ -214,8 +205,7 @@
     <script src="js/jquery.animateNumber.js"></script>
     <script src="js/speed.js"></script>
     <script src="js/distance.js"></script>
-	<script src="js/up_down.js"></script>
-	<script src="js/timeSpent.js"></script>
-	
+    <script src="js/up_down.js"></script>
+    <script src="js/timeSpent.js"></script>
   </body>
 </html>
