@@ -12,6 +12,12 @@ var createQueue = function(length) {
       var out = ll[current];
       return out;
     },
+    isFull: function() {
+      return size === length;
+    },
+    getCurrent: function() {
+      return current;
+    },
     push: function(item1) {
       current = pointer;
       ll[pointer] = item1;
@@ -35,12 +41,26 @@ fileInput.addEventListener("change", function(e) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      var dom = new DOMParser().parseFromString(reader.result, "text/xml");
-      var json = toGeoJSON.gpx(dom);
-      var colour = getColour();
-      var values = populateMap(json, queue.getPointer(), colour);
-      populateChart(json);
-      queue.push(values);
+      var check = true;
+      if (queue.isFull()) {
+        var retVal = confirm(
+          "You will overwrite a preivous route.\nDo you wish to continue?"
+        );
+        if (retVal == true) {
+          check = true;
+        } else {
+          check = false;
+        }
+      }
+      if (check) {
+        var dom = new DOMParser().parseFromString(reader.result, "text/xml");
+        var json = toGeoJSON.gpx(dom);
+        var colour = getColour();
+        var values = populateMap(json, queue.getPointer(), colour);
+        handleBoxes(queue.getPointer(), colour);
+        populateChart(json);
+        queue.push(values);
+      }
     };
 
     reader.readAsBinaryString(file);
@@ -51,12 +71,26 @@ fileInput.addEventListener("change", function(e) {
 
 document.getElementById("flyTo").addEventListener("click", function(e) {
   flyToNext(queue.getNext());
+  if ($(".selected")[0]) {
+    $(".selected").removeClass("selected");
+  }
+  $("#square" + queue.getCurrent()).addClass("selected");
 });
 
 function getColour() {
-  var colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
-  while (colour === "#DC143C") {
-    colour = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+  var letters = "0123456789ABCDEF";
+  var colour = "#";
+  for (var i = 0; i < 6; i++) {
+    colour += letters[Math.floor(Math.random() * 16)];
   }
   return colour;
+}
+
+function handleBoxes(index, colour) {
+  if ($(".selected")[0]) {
+    $(".selected").removeClass("selected");
+  }
+  var square = $("#square" + index);
+  square.css("background-color", colour);
+  square.addClass("selected");
 }
