@@ -47,6 +47,22 @@
     <nav class="navbar navbar-dark bg-info col-12" style="height:10%">
       <p class="navbar-brand mx-auto">GPX VisRev</p>
     </nav>
+      
+    <!-- Accessibility panel -->
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Accessibility
+        </button>
+
+        <div class="dropdown-menu">
+            <label>Font size</label>
+            <a class="dropdown-item" id="default-font-size" onclick="">Default Text Size</a>
+            <a class="dropdown-item" id="large-font-size" onclick="">Large Text Size</a>
+            <a class="dropdown-item" id="huge-font-size" onclick="">Huge Text Size</a>
+        </div>
+    </div>
+      
+      
     <!-- Top level - graph and upload -->
     <div id="main" class="container-fluid col-12">
       <div
@@ -191,6 +207,7 @@
             <div class="col-md-4 col-4 center-text">
               <div class="detailed" id="flat"></div>
             </div>
+              <ul id="slide-out" class="side-nav fixed">
           </div>
         </div>
       </div>
@@ -207,5 +224,6 @@
     <script src="js/distance.js"></script>
     <script src="js/up_down.js"></script>
     <script src="js/timeSpent.js"></script>
+    <script src="js/accessibility.js"></script>
   </body>
 </html>
