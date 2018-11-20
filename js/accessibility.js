@@ -4,8 +4,6 @@ $('#default-font-size').click(function() {
     $(".btn").css("font-size", "20px");
     $(".fa-upload").css("font-size", "20px");
     $(".legend").css("font-size", "0.8em");
-    
-    $("#line-chart").css("font-size", "100px");
 })
 
 $('#large-font-size').click(function() {
