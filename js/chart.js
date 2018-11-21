@@ -145,6 +145,7 @@ function populateChart(data) {
   }
 
   upDown(up_and_down);
+  //upDown2(up_and_down); commenting it out since not in use
 
   if (currentChart !== undefined) {
     currentChart.destroy();
