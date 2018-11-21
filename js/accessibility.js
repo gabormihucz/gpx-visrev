@@ -1,3 +1,15 @@
+$('#default-font-style').click(function() {
+    $("*").not(".fa-upload").css("font-family", '"Helvetica Neue", Helvetica, Arial, sans-serif');
+})
+
+$('#comic-font-style').click(function() {
+    $("*").not(".fa-upload").css("font-family", '"Comic Sans MS", cursive, sans-serif');
+})
+
+$('#monospace-font-style').click(function() {
+    $("*").not(".fa-upload").css("font-family", '"Lucida Console", Monaco, monospace');
+})
+
 $('#default-font-size').click(function() {
     $(".detailed").css("font-size", "1em");
     $(".navbar-brand").css("font-size", "2em");
