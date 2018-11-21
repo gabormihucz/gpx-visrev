@@ -17,7 +17,6 @@ body {
 }
 input {
   position: absolute;
-  font-size: 50px;
   opacity: 0;
   right: 0;
   top: 0;
@@ -64,6 +63,9 @@ input {
 .bg-info {
   background-color: #08629d !important;
   text-shadow: 0px 1px 1px #3a3a3a;
+}
+.btn {
+    font-size: 20px;
 }
 .btn-secondary {
   background-color: rgba(8, 98, 157, 0.8);
