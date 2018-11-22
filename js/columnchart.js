@@ -13,7 +13,7 @@ var chart = new CanvasJS.Chart(document.getElementById("chartContainer"), {
 		type: "column",  
 		showInLegend: true, 
 		legendMarkerColor: "grey",
-		legendText: "MMbbl = one million barrels",
+		legendText: "Measured in meters",
 		dataPoints: [      
 			{ y: up[0], label: "Uphill" },
 			{ y: up[1],  label: "Downhill" },
