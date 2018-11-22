@@ -123,13 +123,13 @@
         </div>
       </div>
       <!-- Map + side bar info -->
-      <div class="row align-items-center">
+      <div class="row">
         <div class="col-md-8 col-12 h-100">
           <div id="map" class="h-100"></div>
         </div>
 
         <div class="container-fluid col-12 col-md-4">
-          <div class="row h-25">
+          <div class="row">
             <div class="col-md-12 col-12 center-text">
               <div id="flyTo" class="col-md-12 left_btn">
                 <button
@@ -187,7 +187,7 @@
               <div class="detailed" id="time_spent"></div>
             </div>
           </div>
-
+<!--
           <div class="row grad">
             <div class="col-md-7 col-7 offset-1">
               <p class="detailed">Distance travelled uphill:</p>
@@ -217,9 +217,14 @@
               <div class="detailed" id="flat"></div>
             </div>
 
-
-
           </div>
+	-->	  
+		  <div class="row grad">
+				<div class="col-md-12 col-12">
+              <div id="chartContainer"></div>
+            </div>
+
+		  </div>
         </div>
       </div>
     </div>
@@ -240,9 +245,9 @@
     <script src="js/timeSpent.js"></script>
     <script src="js/accessibility.js"></script>
 
-    <!-- column chart stuff
+
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="js/columnchart.js"></script>
-     -->
+
   </body>
 </html>

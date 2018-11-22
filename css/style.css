@@ -32,7 +32,7 @@ input {
   height: 100% !important;
 }
 #map {
-  min-height: 500px;
+  min-height: 800px;
   margin-bottom: 1%;
 }
 .metrics {
