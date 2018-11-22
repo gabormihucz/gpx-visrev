@@ -38,6 +38,7 @@ function populateMap(data, index, colour) {
   // data.features[0].geometry.coordinates is the set of all long-lat-ele data points from the GPX
   // For time and heartbeat and other data, more digging is needed in the GeoJSON
   // properties got time, the name of the track, and type of track (e.g. running). cant find the heartrate
+  try{
   const extracted = data.features[0].geometry.coordinates;
 
   var coord = [];
@@ -87,4 +88,15 @@ function populateMap(data, index, colour) {
     }
   });
   return [lat, lon, elev, data];
+  
+  }catch(err){
+	  alert("Sorry mate, there seems to be something wrong with your file");
+  }
+  
+  
+  
+  
+  
+  
+  
 }

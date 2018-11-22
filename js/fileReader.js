@@ -33,10 +33,13 @@ var createQueue = function(length) {
 };
 
 var queue = createQueue(5);
-
+try{
 fileInput.addEventListener("change", function(e) {
   var file = fileInput.files[0];
   var fileType = ".gpx";
+  if (file.name.includes(fileType) == false){
+	  alert("Sorry mate, wrong file type");
+  }else{
   if (file.name.includes(fileType)) {
     var reader = new FileReader();
 
@@ -66,8 +69,14 @@ fileInput.addEventListener("change", function(e) {
     reader.readAsBinaryString(file);
   } else {
     fileDisplayArea.innerText = "File not supported!";
+	
+  }
   }
 });
+}
+catch(err){
+	alert("Sorry mate, there seems to be something wrong with your file");
+}
 
 document.getElementById("flyTo").addEventListener("click", function(e) {
   flyToNext(queue.getNext());
