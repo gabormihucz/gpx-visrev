@@ -46,3 +46,20 @@ $('#bold-font-weight').click(function() {
         $(".legend").css("font-weight", "normal");
     }
 })
+
+$('#default-colour-scheme').click(function() {
+    $("body").css("background", "white");
+    $(".detailed").css("color", "black");
+    $(".legend").css("color", "black");
+    $(".dropdown-menu").css("background", "white");
+})
+
+$('#dark-colour-scheme').click(function() {
+    $("body").css("background", "black");
+    $(".detailed").css("color", "#dee3ea");
+    $(".legend").css("color", "#dee3ea");
+    $(".dropdown-menu").css("background", "#eaa717");
+})
+
+
+
