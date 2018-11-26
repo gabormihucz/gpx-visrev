@@ -63,7 +63,8 @@ fileInput.addEventListener("change", function(e) {
       }
     };
 
-    reader.readAsBinaryString(file);
+//Seems like readAsText() works with .gpx, and this way special characters remain
+    reader.readAsText(file);
   } else {
     fileDisplayArea.innerText = "File not supported!";
   }
