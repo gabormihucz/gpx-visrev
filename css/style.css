@@ -34,6 +34,7 @@ input {
 #map {
   min-height: 800px;
   margin-bottom: 1%;
+  
 }
 .metrics {
   font-weight: bold;
@@ -117,4 +118,19 @@ input {
 .dropdown-menu{
 	text-shadow: 0px 0px 0px #000000;
 	padding-left: 2px;
+}
+.titleWeb{
+	font-weight: bold;
+	font-size: 2em;
+	color: white;
+	text-align: center;
+}
+h5{
+	font-size: 0.7em;
+	color: white;
+	text-align: center;
+	
+}
+.dropdown{
+	margin-top: 10px
 }

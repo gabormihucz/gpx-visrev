@@ -121,6 +121,7 @@ function populateChart(data) {
   totalDistance(distances);
   timeSpent(time_spent);
 
+
   /** up_and_down stores distance taken going uphill (first element), downhill (second element) and going on a flat surface (third element) in meters*/
   up_and_down = [0, 0, 0];
   elev_diff = [];

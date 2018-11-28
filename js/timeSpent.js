@@ -15,4 +15,5 @@ function timeSpent(time) {
   $(".grad")
     .css({ opacity: 0.0, visibility: "visible" })
     .animate({ opacity: 1.0 }, 1000);
+
 }

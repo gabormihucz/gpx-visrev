@@ -44,28 +44,51 @@
 
   <body>
     <!-- Top bar name -->
-    <nav class="navbar navbar-dark bg-info col-12" style="min-height:10%">
-      <p class="navbar-brand mx-auto">GPX VisRev</p>
-	  <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Accessibility
-        </button>
+	<div class="container-fluid navbar-dark" style="background-color: #08629d !important; padding-bottom: 5px ">
+		<div class= "row">
+			<div class="col-md-8 col-12 titleWeb">
+			GPX VisRev<br>
+			<h5>Visualize your data</h5>
+			</div>
+			
+			<div class=" col-12 col-md-4 dropdown">
+				<button type="button" class="btn btn-primary dropdown-toggle col-12" data-toggle="dropdown">
+					Accessibility
+				</button>
 
-        <div class="dropdown-menu">
-            <label>Font style</label>
-            <a class="dropdown-item" id="default-font-style">Default Font</a>
-            <a class="dropdown-item" id="comic-font-style">Comic Font</a>
-            <a class="dropdown-item" id="monospace-font-style">Monospace Font</a>
-            <label>Font size</label>
-            <a class="dropdown-item" id="default-font-size">Default Text Size</a>
-            <a class="dropdown-item" id="large-font-size">Large Text Size</a>
-            <a class="dropdown-item" id="huge-font-size">Huge Text Size</a>
-            <label>Font weight</label>
-            <a class="dropdown-item" id="bold-font-weight">Bold Font</a>
-        </div>
-    </div>
+				<div class="dropdown-menu">
+					<label>Font style</label>
+					<a class="dropdown-item" id="default-font-style">Default Font</a>
+					<a class="dropdown-item" id="comic-font-style">Comic Font</a>
+					<a class="dropdown-item" id="monospace-font-style">Monospace Font</a>
+					<label>Font size</label>
+					<a class="dropdown-item" id="default-font-size">Default Text Size</a>
+					<a class="dropdown-item" id="large-font-size">Large Text Size</a>
+					<a class="dropdown-item" id="huge-font-size">Huge Text Size</a>
+					<label>Font weight</label>
+					<a class="dropdown-item" id="bold-font-weight">Bold Font</a>
+				</div>
+			</div>
+			
+		</div>
+
+		
+	</div>
+	
+<!--
+		<div class="row">
+			<div class="col-md-8 col-12 titleDes">
+				Visualize your data
+			</div>
+		</div>
+
+
+    <nav class="navbar navbar-dark bg-info col-12" style="min-height:10%">
+      <p class="navbar-brand mx-auto">GPX VisRev </p>
+	  <p class="navbar-brand mx-auto" style>Visualize your data</p>
+	  
     </nav>
-      
+      -->
     <!-- Accessibility panel -->
 
       
@@ -103,7 +126,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" style="margin-top: 5%;margin-bottom: 5%;">
             <div class="col-1 offset-1 offset-sm-1 offset-md-1 offset-lg-2">
               <div class="square" id="square0"></div>
             </div>
@@ -123,9 +146,9 @@
         </div>
       </div>
       <!-- Map + side bar info -->
-      <div class="row">
-        <div class="col-md-8 col-12 h-100">
-          <div id="map" class="h-100"></div>
+      <div class="row" >
+        <div class="col-md-8 col-12">
+          <div id="map" class=""></div>
         </div>
 
         <div class="container-fluid col-12 col-md-4">
