@@ -1,5 +1,18 @@
 var currentChart;
+var num_of_tracks = 0;
+
+function hide_flyTO() {
+        
+        if(num_of_tracks<2) {
+            console.log("yolo");
+            document.getElementById('flyTo').style.visibility = 'hidden';
+        } else {
+            document.getElementById('flyTo').style.visibility = 'visible';
+        }
+}
+
 window.onload = function() {
+  document.getElementById('flyTo').style.visibility = 'hidden';
   currentChart = new Chart(document.getElementById("line-chart"), {
     type: "line",
     data: {
@@ -56,6 +69,8 @@ function distance(lat1, lon1, lat2, lon2) {
   return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
 }
 
+
+
 function populateChart(data) {
   const extracted = data.features[0].geometry.coordinates;
   const extracted_properties = data.features[0].properties;
@@ -64,6 +79,11 @@ function populateChart(data) {
   var coord = [];
   lat = [];
   lon = [];
+
+  num_of_tracks+=1;
+
+  hide_flyTO();
+
 
   extracted.forEach(element => {
     coord.push([element[0], element[1]]);
@@ -219,3 +239,4 @@ function populateChart(data) {
     }
   });
 }
+
