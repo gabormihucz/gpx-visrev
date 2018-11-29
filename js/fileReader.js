@@ -37,10 +37,9 @@ try{
 fileInput.addEventListener("change", function(e) {
   var file = fileInput.files[0];
   var fileType = ".gpx";
-  if (file.name.includes(fileType) == false){
+  if (!file.name.includes(fileType)){
 	  alert("Sorry mate, wrong file type");
   }else{
-  if (file.name.includes(fileType)) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
@@ -58,20 +57,16 @@ fileInput.addEventListener("change", function(e) {
       if (check) {
         var dom = new DOMParser().parseFromString(reader.result, "text/xml");
         var json = toGeoJSON.gpx(dom);
+        populateChart(json);
         var colour = getColour();
         var values = populateMap(json, queue.getPointer(), colour);
         handleBoxes(queue.getPointer(), colour);
-        populateChart(json);
         queue.push(values);
       }
     };
 
 //Seems like readAsText() works with .gpx, and this way special characters remain
     reader.readAsText(file);
-  } else {
-    fileDisplayArea.innerText = "File not supported!";
-	
-  }
   }
 });
 }
