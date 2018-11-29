@@ -1,6 +1,6 @@
 function timeSpent(time) {
-  
-  //console.log(Math.round(total));
+
+
   total = Math.round(time/60);
   var percent_number_step = $.animateNumber.numberStepFactories.append(" min");
   $("#time_spent").animateNumber(

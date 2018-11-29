@@ -32,8 +32,9 @@ function totalDistance(dists) {
     total += dists[i];
   }
   total /= 1000;
+
   total = Math.round(total * 100) / 100;
-  //console.log(Math.round(total));
+
   $("#distance").css("color", getColor(Math.round(total), colors));
   var percent_number_step = $.animateNumber.numberStepFactories.append(" km");
   $("#distance").animateNumber(

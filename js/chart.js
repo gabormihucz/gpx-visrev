@@ -2,9 +2,9 @@ var currentChart;
 var num_of_tracks = 0;
 
 function hide_flyTO() {
-        
+
         if(num_of_tracks<2) {
-            console.log("yolo");
+
             document.getElementById('flyTo').style.visibility = 'hidden';
         } else {
             document.getElementById('flyTo').style.visibility = 'visible';
@@ -128,15 +128,18 @@ function populateChart(data) {
     extracted_properties.coordTimes[extracted_properties.coordTimes.length - 1]
   );
   var time_spent = (end_time - start_time) / 1000; // total time spent running in seconds
+
   var dmy = start_time + "";
   dmy = dmy.slice(0, 15); // date of the run, e.g. Sat Aug 27 2017
 
   /** divide distance by time to get speed */
 
   for (var i = 0; i < times.length; i++) {
-    speeds.push((distances[i] / times[i]) * 3.6);
+    if (!isNaN((distances[i] / times[i]) * 3.6)){
+      speeds.push((distances[i] / times[i]) * 3.6);
   }
-  //console.log(distances);
+  }
+
   averageSpeed(speeds);
   totalDistance(distances);
   timeSpent(time_spent);
@@ -239,4 +242,3 @@ function populateChart(data) {
     }
   });
 }
-
