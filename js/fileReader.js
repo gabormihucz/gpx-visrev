@@ -57,11 +57,19 @@ fileInput.addEventListener("change", function(e) {
       if (check) {
         var dom = new DOMParser().parseFromString(reader.result, "text/xml");
         var json = toGeoJSON.gpx(dom);
-        populateChart(json);
-        var colour = getColour();
-        var values = populateMap(json, queue.getPointer(), colour);
-        handleBoxes(queue.getPointer(), colour);
-        queue.push(values);
+        var success = true;
+        try{
+          populateChart(json);
+        }catch(err){
+          success = false;
+          alert("Sorry mate, there seems to be something wrong with your file");
+        }
+        if(success){
+          var colour = getColour();
+          var values = populateMap(json, queue.getPointer(), colour);
+          handleBoxes(queue.getPointer(), colour);
+          queue.push(values);
+        }
       }
     };
 
